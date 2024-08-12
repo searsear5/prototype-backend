@@ -385,3 +385,4 @@ app.listen(port, () => {
   console.log(`HTTP server running at http://localhost:${port}`);
 });
 
+module.exports = app
