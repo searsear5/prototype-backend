@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userID      Int     @id @default(autoincrement())
+  username    String
+  firstname   String
+  lastname    String
+  nickname    String
+  position    String
+  phone       String
+  nationality String
+  startdate   String
+  image       String?
+  coverimage  String?
+}
+
+model Information {
+  informationID Int    @id @default(autoincrement())
+  address       String
+  subdistrict   String
+  district      String
+  province      String
+  postalcode    String
+  facebook      String
+  lineID        String
+  instagram     String
+}
+
+model Education {
+  educationID Int    @id @default(autoincrement())
+  year        String
+  university  String
+}
+
+model Experience {
+  expID      Int    @id @default(autoincrement())
+  experience String
+}
+
+model Skill {
+  skillID    Int    @id @default(autoincrement())
+  skill      String
+  skilllevel String
+}
+
+model Interest {
+  interestID Int    @id @default(autoincrement())
+  interest   String
+}
+
+model Guild {
+  guildID Int    @id @default(autoincrement())
+  guild   String
+}
